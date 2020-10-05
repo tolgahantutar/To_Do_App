@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.tolgahantutar.to_do_app.ui.home.HomeFragment"
+        android:label="Notlar"
+        tools:layout="@layout/home_fragment">
+        <action
+            android:id="@+id/action_add_note"
+            app:destination="@id/addNoteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addNoteFragment"
+        android:name="com.tolgahantutar.to_do_app.ui.addnote.AddNoteFragment"
+        android:label="Not Ekle"
+        tools:layout="@layout/add_note_fragment">
+        <action
+            android:id="@+id/action_save"
+            app:destination="@id/homeFragment" />
+        <argument
+            app:argType="com.tolgahantutar.to_do_app.db.Note"
+            android:name="Note"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+</navigation>
